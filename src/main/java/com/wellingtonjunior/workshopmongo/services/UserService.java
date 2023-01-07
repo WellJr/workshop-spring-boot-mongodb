@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wellingtonjunior.workshopmongo.domain.User;
+import com.wellingtonjunior.workshopmongo.dto.UserDTO;
 import com.wellingtonjunior.workshopmongo.repository.UserRepository;
 import com.wellingtonjunior.workshopmongo.services.exepetions.ObjectNotFoundException;
 
@@ -24,4 +25,13 @@ public class UserService {
 		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não econtrado"));
 	}
+	
+	public User insert(User user) {
+		return repo.insert(user);
+	}
+	
+	public User fromDTO(UserDTO objDTO) {
+		return new User(objDTO.getId(), objDTO.getName(), objDTO.getEmail());
+	}
+	
 }
