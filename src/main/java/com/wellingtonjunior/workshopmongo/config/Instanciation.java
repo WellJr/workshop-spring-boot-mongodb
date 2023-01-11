@@ -37,7 +37,7 @@ public class Instanciation implements CommandLineRunner {
 		User alex = new User(null, "Alex Green", "alex@gmail.com");
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
 		
-		//primeiro salva os usurios para tero id proprio
+		//primeiro salva os usurios para ter o id proprio
 		userRepository.saveAll(Arrays.asList(maria, alex, bob));
 		
 		Post post1 = new Post(null, sdf.parse("21/03/2018"), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(maria));
